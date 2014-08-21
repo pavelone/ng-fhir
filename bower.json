@@ -7,7 +7,7 @@
   "description": "FHIR API AngularJS module",
   "keywords": ["fhir", "angular"],
   "main": [
-    "ng-fhir.js"
+    "js/ng-fhir.js"
   ],
   "license": "MIT",
   "dependencies": {
