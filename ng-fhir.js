@@ -6,7 +6,7 @@
 
   BASE_PREFIX = '/';
 
-  angular.module('ng-fhir').provider('fhir', function() {
+  angular.module('ng-fhir').provider('$fhir', function() {
     var addKey, buildTags, extractTags;
     buildTags = function(tags) {
       return tags.filter(function(i) {
@@ -551,13 +551,13 @@
     return "" + p.name + "=" + p.operation + (values.join(','));
   };
 
-  angular.module('ng-fhir').factory('fhirParams', function() {
+  angular.module('ng-fhir').factory('$fhirParams', function() {
     return function(profile) {
       return new Query(profile);
     };
   });
 
-  angular.module('ng-fhir').provider('search', function() {
+  angular.module('ng-fhir').provider('$fhirSearch', function() {
     var cache;
     cache = {
       type: [],
