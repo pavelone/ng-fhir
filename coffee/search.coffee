@@ -1,4 +1,4 @@
-angular.module('ngFhir').provider '$fhirSearch', ()->
+angular.module('ng-fhir').provider '$fhirSearch', ()->
   cache = {
     type: []
     param: {}
@@ -6,14 +6,14 @@ angular.module('ngFhir').provider '$fhirSearch', ()->
     search: {}
   }
 
-  $get: (fhir, fhirParams)->
+  $get: ($fhir, $fhirParams)->
 
-    fhir.metadata (data)->
+    $fhir.metadata (data)->
       cache.type = (data.rest[0].resource.sort(keyComparator('type')) || []).map (i)-> i.type
     
     fillCache = (type)->
-      fhir.profile type, (data)->
-        profile = fhirParams(data)
+      $fhir.profile type, (data)->
+        profile = $fhirParams(data)
         cache.param[type] = profile.searchParam
         cache.chain[type] = profile.chainType
 

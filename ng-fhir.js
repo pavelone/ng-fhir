@@ -2,11 +2,13 @@
   var BASE_PREFIX, NOTIFICATION_REMOVE_TIMEOUT, Query, collectChainType, collectChains, identity, modifiers, operations, rm, tags, _dateToQuery, _mkSearchParam, _numberToQuery, _referenceToQuery, _stringToQuery, _tokenToQuery,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
+  angular.module('ng-fhir', []);
+
   NOTIFICATION_REMOVE_TIMEOUT = 2000;
 
   BASE_PREFIX = '/';
 
-  angular.module('ngFhir').provider('$fhir', function() {
+  angular.module('ng-fhir').provider('$fhir', function() {
     var addKey, buildTags, extractTags;
     buildTags = function(tags) {
       return tags.filter(function(i) {
@@ -551,13 +553,13 @@
     return "" + p.name + "=" + p.operation + (values.join(','));
   };
 
-  angular.module('ngFhir').factory('$fhirParams', function() {
+  angular.module('ng-fhir').factory('$fhirParams', function() {
     return function(profile) {
       return new Query(profile);
     };
   });
 
-  angular.module('ngFhir').provider('$fhirSearch', function() {
+  angular.module('ng-fhir').provider('$fhirSearch', function() {
     var cache;
     cache = {
       type: [],
@@ -566,17 +568,17 @@
       search: {}
     };
     return {
-      $get: function(fhir, fhirParams) {
+      $get: function($fhir, $fhirParams) {
         var fillCache, filterParams, provider, typeChainParams, typeChainTypes, typeFilterChainParams, typeFilterParams, typeFilterSortedParams, typeReferenceTypes, typeSearchParams;
-        fhir.metadata(function(data) {
+        $fhir.metadata(function(data) {
           return cache.type = (data.rest[0].resource.sort(keyComparator('type')) || []).map(function(i) {
             return i.type;
           });
         });
         fillCache = function(type) {
-          return fhir.profile(type, function(data) {
+          return $fhir.profile(type, function(data) {
             var profile;
-            profile = fhirParams(data);
+            profile = $fhirParams(data);
             cache.param[type] = profile.searchParam;
             return cache.chain[type] = profile.chainType;
           });
