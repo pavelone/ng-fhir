@@ -7,7 +7,13 @@
   "description": "FHIR API AngularJS module",
   "keywords": ["fhir", "angular"],
   "main": [
-    "js/ng-fhir.js"
+    "ng-fhir.js"
+  ],
+  "ignore": [
+    "coffee",
+    ".gitignore",
+    "Gruntfile.js",
+    "package.json"
   ],
   "license": "MIT",
   "dependencies": {

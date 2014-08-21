@@ -1,13 +1,13 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    clean: ['js/**/*'],
+    clean: ['ng-fhir.js'],
     coffee: {
       main: {
         options: {
           join: true
         },
         files: {
-          'js/ng-fhir.js': 'coffee/**/*.coffee'
+          'ng-fhir.js': 'coffee/**/*.coffee'
         }
       }
     }
