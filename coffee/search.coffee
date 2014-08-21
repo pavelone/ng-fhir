@@ -1,4 +1,4 @@
-angular.module('ng-fhir').provider 'search', ()->
+angular.module('ng-fhir').provider '$fhir-search', ()->
   cache = {
     type: []
     param: {}
