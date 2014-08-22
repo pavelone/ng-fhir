@@ -1,8 +1,9 @@
 {
   "name": "ng-fhir",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
-    "Maksym Bodnarchuk <bodnarchuk@gmail.com>"
+    "Maksym Bodnarchuk <bodnarchuk@gmail.com>",
+   "Nikolay Ryzhikov <niquola@gmail.com>"
   ],
   "description": "FHIR API AngularJS module",
   "keywords": ["fhir", "angular"],
