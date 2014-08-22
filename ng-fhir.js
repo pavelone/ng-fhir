@@ -1,5 +1,5 @@
 (function() {
-  var BASE_PREFIX, NOTIFICATION_REMOVE_TIMEOUT, Query, collectChainType, collectChains, identity, modifiers, operations, rm, tags, _dateToQuery, _mkSearchParam, _numberToQuery, _referenceToQuery, _stringToQuery, _tokenToQuery,
+  var BASE_PREFIX, NOTIFICATION_REMOVE_TIMEOUT, Query, collectChainType, collectChains, identity, keyComparator, modifiers, operations, rm, tags, _dateToQuery, _mkSearchParam, _numberToQuery, _referenceToQuery, _stringToQuery, _tokenToQuery,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   angular.module('ng-fhir', []);
@@ -558,6 +558,19 @@
       return new Query(profile);
     };
   });
+
+  keyComparator = function(key) {
+    return function(a, b) {
+      switch (false) {
+        case !(a[key] < b[key]):
+          return -1;
+        case !(a[key] > b[key]):
+          return 1;
+        default:
+          return 0;
+      }
+    };
+  };
 
   angular.module('ng-fhir').provider('$fhirSearch', function() {
     var cache;

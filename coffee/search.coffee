@@ -1,3 +1,10 @@
+keyComparator = (key)->
+ (a, b) ->
+   switch
+     when a[key] < b[key] then -1
+     when a[key] > b[key] then 1
+     else 0
+
 angular.module('ng-fhir').provider '$fhirSearch', ()->
   cache = {
     type: []
@@ -10,7 +17,7 @@ angular.module('ng-fhir').provider '$fhirSearch', ()->
 
     $fhir.metadata (data)->
       cache.type = (data.rest[0].resource.sort(keyComparator('type')) || []).map (i)-> i.type
-    
+
     fillCache = (type)->
       $fhir.profile type, (data)->
         profile = $fhirParams(data)
