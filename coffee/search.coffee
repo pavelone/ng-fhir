@@ -31,7 +31,7 @@ angular.module('ng-fhir').provider '$fhirSearch', ()->
       else
         cache.param[type] = []
         fillCache(type)
-        console.log('profile ' + type)
+        # console.log('profile ' + type)
         []
 
     typeChainTypes = (type)->
@@ -41,7 +41,7 @@ angular.module('ng-fhir').provider '$fhirSearch', ()->
       else
         cache.chain[type] = {}
         fillCache(type)
-        console.log('chain ' + type)
+        # console.log('chain ' + type)
         {}
 
     filterParams = (params, filter)->

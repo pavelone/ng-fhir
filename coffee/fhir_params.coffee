@@ -24,7 +24,7 @@ collectChains = (profile)->
   elemsIdx = profile.structure[0].differential
     .element.reduce(((idx, x)-> idx[x.path]=x; idx ),{})
 
-  console.log(elemsIdx)
+  # console.log(elemsIdx)
 
   searchParam.reduce(((acc, x)->
     return acc unless x.type == 'reference'
@@ -41,7 +41,7 @@ collectChainType = (profile)->
   elemsIdx = profile.structure[0].differential
     .element.reduce(((idx, x)-> idx[x.path]=x; idx ),{})
 
-  console.log(elemsIdx)
+  # console.log(elemsIdx)
 
   types = {}
 
