@@ -15,22 +15,20 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/*.coffee'
-    ],
+            'bower_components/angular/angular.min.js',
+            'bower_components/angular-mocks/angular-mocks.js',
+            'coffee/*.coffee',
+            'test/*.coffee' ],
 
 
     // list of files to exclude
-    exclude: [
-      '**/*.swp'
-    ],
+    exclude: [ '**/*.swp' ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 
-    preprocessors: {
-      '**/*.coffee': ['coffee']
-    },
+    preprocessors: { '**/*.coffee': ['coffee'] },
 
     coffeePreprocessor: {
       options: {
