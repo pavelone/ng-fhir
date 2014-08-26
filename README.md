@@ -3,6 +3,8 @@ ng-fhir
 
 FHIR API AngularJS module
 
+[![Build Status](https://travis-ci.org/fhirbase/ng-fhir.svg)](https://travis-ci.org/fhirbase/ng-fhir)
+
 ## Installation
 
 Install with `bower`:
