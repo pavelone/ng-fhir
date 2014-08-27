@@ -13,7 +13,7 @@
     "karma-phantomjs-launcher": "latest",
     "karma-jasmine": "latest",
     "phantomjs": "latest",
-    "karma-jasmine": "latest",
+    "karma-jasmine": "~0.2.0",
     "karma-coffee-preprocessor": "latest"
   },
   "description": "FHIR API AngularJS module",
