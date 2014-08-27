@@ -15,8 +15,12 @@ type = (obj) ->
 OPERATORS =
   $gt: '>'
   $lt: '<'
+  $lte: '<='
+  $gte: '>='
 
 MODIFIERS=
+  $asc: ':asc'
+  $desc: ':desc'
   $exact: ':exact'
   $missing: ':missing'
   $null: ':missing'
@@ -45,6 +49,8 @@ expandParam = (k,v)->
     acc.concat if kk == '$and'
       assertArray(vv)
         .reduce(((a,vvv)-> a.concat(linearizeOne(k,vvv))), [])
+    else if kk == '$type'
+      []
     else if isOperator(kk)
       o = {param: k}
       if kk == '$or'
@@ -58,7 +64,8 @@ expandParam = (k,v)->
           o.value = [vv]
       [o]
     else
-      linearizeOne("#{k}.#{kk}", vv)
+      res = ":#{v.$type}" if v.$type
+      linearizeOne("#{k}#{res || ''}.#{kk}", vv)
 
   ([x,y] for x,y of v).reduce(reduceFn, [])
 

@@ -62,4 +62,12 @@ describe "test params builder", ->
     expect(subject(birthDate: {$gt: '2011', $lt: '2014'}))
       .toBe('birthDate=>2011&birthDate=<2014')
 
-    console.log(subject(birthDate: {$gt: '2011', $lt: '2014'}))
+    expect(subject(
+      sort: {$and: [{$asc: 'name'},{$desc: 'birthDate'}, 'vip']}))
+      .toBe('sort:asc=name&sort:desc=birthDate&sort=vip')
+
+    expect(subject('subject.name': {$exact: 'maud'}))
+      .toBe('subject.name:exact=maud')
+
+    expect(subject(subject: {$type: 'Patient', name: 'maud', birthDate: {$gt: '1970'}}))
+      .toBe('subject:Patient.name=maud&subject:Patient.birthDate=>1970')
