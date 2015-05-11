@@ -46,12 +46,6 @@ angular.module('myApp', ['ng-fhir'])
 })
 ```
 
-## Service
-
-> All premium services from developers of Fhirbase projects 
-> should be requested from Choice Hospital Systems (http://Choice-HS.com)
-
-
 ## API
 
 ### Conformance & Profiles
